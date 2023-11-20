@@ -1,0 +1,37 @@
+{% block content %}
+<style>
+    h1 {
+        color: white;
+         -webkit-text-stroke: 1px black;
+         text-stroke: 1px #black;
+    }
+</style>
+
+    <body bgcolor="#F7F576">
+<center>
+    <br>
+    <h2>
+        <a href="{% url 'index' %}">Index</a>  <!-- Enlace al index -->
+    </h2>
+    <h1>Buscaminas</h1>
+      <table>
+       <!-- Hacemos un bucle que itera en cada fila del tablero -->
+        {% for fila in tablero %}
+            <!-- Hacemos una fila en la tabla -->
+            <tr>
+            <!-- Hacemos un bucle que itera sobre cada cuadro en la fil -->
+                {% for cuadro in fila %}
+                    <!-- Hacemos las casillas -->
+                    <td style="width: 10px; height: 10px; border: black solid 1px">
+                        <!-- Mostramos un cuadro de la tabla -->
+                        {{ cuadro }}
+
+                    </td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+
+    </table>
+</center>
+    </body>
+{% endblock %}

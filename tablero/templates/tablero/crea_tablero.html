@@ -1,0 +1,50 @@
+{% block content %}
+<style>
+    h1 {
+        color: white;
+         -webkit-text-stroke: 1px black;
+         text-stroke: 1px #black;
+    }
+</style>
+<body bgcolor="#F7F576">
+<h2>
+    <!-- Creamos un enlace para redirigirnos al index -->
+    <a href="{% url 'index' %}">Index</a>
+</h2>
+
+<h1>Formulario</h1>
+
+<form method="post">
+    {% csrf_token %}
+
+
+    {{ form.non_field_errors }}
+    <!-- Muestra errores que no están asociados a campos específicos del formulario -->
+
+    <div>
+        Filas: {{ form.filas }}
+        <!-- Mostramos el formulario de filas -->
+    </div>
+    <br>
+
+    <div>
+        Columnas: {{ form.columnas }}
+        <!-- Mostramos el formulario de columnas -->
+    </div>
+    <br>
+
+    <div>
+        Número de minas: {{ form.num_minas }}
+       <!-- Mostramos el formulario de numero de minas -->
+    </div>
+    <br>
+
+    <button type="submit">Enviar</button>
+    <!-- Hacemos el boton para enviar el formulario, que nos creará el tablero -->
+</form>
+</body>
+{% endblock %}
+
+
+
+
