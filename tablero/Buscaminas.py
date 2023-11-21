@@ -50,19 +50,19 @@ class Tablero:
 
     # Método para representar el tablero como una lista HTML para mostrar en la interfaz
     def mostrarTablero(self):
-        tablero_html = []
+        tablero_v = []
         for fila in range(self.filas):
-            fila_html = []
+            fila_v = []
             for columna in range(self.columnas):
                 casilla = self.tablero[fila][columna]
                 # Muestra 'Mina' si la casilla contiene una mina y el número de minas adyacentes si es mayor a 0
                 if casilla.contiene_mina:
-                    fila_html.append('Mina')
+                    fila_v.append('💣')
                 elif casilla.minas_adyacentes > 0:
-                    fila_html.append(str(casilla.minas_adyacentes))
+                    fila_v.append(str(casilla.minas_adyacentes))
                 else:
-                    fila_html.append('')
-            tablero_html.append(fila_html)
+                    fila_v.append('')
+            tablero_v.append(fila_v)
 
-        return tablero_html
+        return tablero_v
 
