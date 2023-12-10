@@ -18,6 +18,7 @@ class Tablero:
         # Inicializa un tablero como una matriz de instancias de 'Casilla'
         self.tablero = [[Casilla() for _ in range(columnas)] for _ in range(filas)]
         # Genera las minas en el tablero y calcula el número de minas adyacentes
+        self.minas_coord = set()
         self.generarMinas() #Metodo definido para generar minas
         self.minasAdyacentes() #Metodo definido para calcular las minas adyacentes
 
@@ -31,6 +32,7 @@ class Tablero:
             if not self.tablero[fila][columna].contiene_mina:
                 # Establece que la casilla ahora contiene una mina
                 self.tablero[fila][columna].contiene_mina = True
+                self.minas_coord.add((fila, columna))
                 minas_generadas += 1
 
     # Método para calcular el número de minas adyacentes para cada casilla del tablero
