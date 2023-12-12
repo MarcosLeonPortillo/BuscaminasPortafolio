@@ -1,3 +1,4 @@
+
 # Importamos random para generar números aleatorios
 import random
 
@@ -38,12 +39,13 @@ class Tablero:
                     for j in range(-1, 2):
                         # Verifica si la casilla adyacente está dentro de los límites del tablero
                         if 0 <= fila + i < self.filas and 0 <= columna + j < self.columnas:
+                            #Agregamos las coordenadas a las casillas adyacentes
                             casilla.adyacentes.append((fila + i, columna + j))
                             # Incrementa el contador si la casilla adyacente contiene una mina
                             if (fila + i, columna + j) in self.minas_coord:
                                 casilla.minas_adyacentes += 1
 
-    # Método para representar el tablero como una lista HTML para mostrar en la interfaz
+    # Método para representar el tablero como una lista
     def mostrarTablero(self):
         tablero_v = []
         for fila in range(self.filas):

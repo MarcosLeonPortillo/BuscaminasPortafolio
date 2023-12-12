@@ -23,11 +23,11 @@ def tablero(request):
             columnas = form.cleaned_data['columnas']
             num_minas = form.cleaned_data['num_minas']
 
-                # Generamos el tablero con las minas.
+            #Creamos una instancia de la clase Tablero con las dimensiones y el número de minas especificadas
+            #Le añadimos el metodo mostrarTalero
             tablero = Tablero(filas, columnas, num_minas).mostrarTablero()
 
-    # Si la solicitud no es un POST, o el formulario no es válido,
-    # crea una instancia del formulario 'TableroForm' para ser utilizado en la plantilla.
+    # Si la solicitud no es un POST, se devuelve el formulario vacio
     else:
         form = TableroForm()
 
